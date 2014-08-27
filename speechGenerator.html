@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lenin`s Speech Generator</title>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#btn").click(function() {
+					function rnd(max) {
+      			return Math.floor(Math.random() * (max));
+      		}
+      		var rands = new Array();
+      		for (var i = 0; i < parseInt($('#max').val()); i++)
+      			for (var j = 0; j < 4; j++)
+      				rands.push(rnd(6));
+      		var res = '';
+      		for (var i = 0; i < parseInt($('#max').val())*4; i+=4) {
+      			switch(rands[i]) {
+      				case '0':
+      					res += 'Товарищи, ';
+      					break;
+      				case 1:
+      					res += 'С другой стороны ';
+      					break;
+      				case 2:
+      					res += 'Равным образом ';
+      					break;
+      				case 3:
+      					res += 'Не следует забывать, что ';
+      					break;
+      				case 4:
+      					res += 'Таким образом ';
+      					break;
+      				case 5:
+      					res += 'Повседневная практика показывает, что ';
+      					break;
+      			}
+      			switch(rands[i+1]) {
+      				case 0:
+      					res += 'реализация намеченых плановых заданий, ';
+      					break;
+      				case 1:
+      					res += 'рамки и место обучения кадров ';
+      					break;
+      				case 2:
+      					res += 'постоянный количественный рост и сфера нашей активности ';
+      					break;
+      				case 3:
+      					res += 'сложившаяся структура организации ';
+      					break;
+      				case 4:
+      					res += 'новая модель организационной деятельности ';
+      					break;
+      				case 5:
+      					res += 'детальнейшее развитие различных форм деятельности ';
+      					break;
+      			}
+ 						switch(rands[i+2]) {
+      				case 0:
+      					res += 'играет важную роль в формировании ';
+      					break;
+      				case 1:
+      					res += 'требуют от нас анализа ';
+      					break;
+      				case 2:
+      					res += 'требуют определения и уточнения ';
+      					break;
+      				case 3:
+      					res += 'способствует подготовке и реализации ';
+      					break;
+      				case 4:
+      					res += 'обеспечивает широкому кругу (специалистов) участие в формировании ';
+      					break;
+      				case 5:
+      					res += 'позволяет выполнить важные задания по разработке ';
+      					break;
+      			}
+      			switch(rands[i+3]) {
+      				case 0:
+      					res += 'существенных финансовых и административных условий. ';
+      					break;
+      				case 1:
+      					res += 'дальнейших направлений развития. ';
+      					break;
+      				case 2:
+      					res += 'системы массового участия. ';
+      					break;
+      				case 3:
+      					res += 'позиций, занимаемых участниками в отношении поставленных задач. ';
+      					break;
+      				case 4:
+      					res += 'новых предложений. ';
+      					break;
+      				case 5:
+      					res += 'направлений прогрессивного развития. ';
+      					break;
+      			}     			
+      		}
+      		$('#res').html(res);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Lenin`s Speech Generator</h1>
+		<form>
+			<label for="max">Кол-во предложений</label>
+			<input type="number" id="max">
+			<input type="button" id="btn" value="ok">
+		</form>
+		<div id='res'></div>
+	</body>
+</html>
